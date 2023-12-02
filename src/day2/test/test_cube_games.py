@@ -12,7 +12,7 @@ class Test_Cube_Games(unittest.TestCase):
 
     def test_get_power_of_each_game(self):
         test_input = open("day2Part2TestInput.txt")
-        power_of_each_game = get_power_of_each_game(test_input.readlines())
+        power_of_each_game = get_power_of_each_game(test_input.readlines(), 3)
         self.assertEqual(sum(power_of_each_game), 2286, "Should be 2286")
         test_input.close()
 

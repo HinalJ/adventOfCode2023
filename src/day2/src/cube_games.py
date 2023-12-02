@@ -29,7 +29,7 @@ def get_valid_games_id(games, total_colored_cubes_present):
 
 
 # Power is calculated by multiplying minimum number of red, green and blue cubes to be present to make each game valid
-def get_power_of_each_game(games):
+def get_power_of_each_game(games, total_no_of_colors):
     color_to_int = {
         "red": 0,
         "green": 1,
@@ -38,10 +38,9 @@ def get_power_of_each_game(games):
 
     power_of_games = []
     for game in games:
-        game_id, sets = game.split(":")
-        game_id_int = int(game_id.split(" ")[1])
+        sets = game.split(":")[1]
 
-        min_num_of_cubes_req = [0, 0, 0]
+        min_num_of_cubes_req = [0 for _ in range(0, total_no_of_colors)]
 
         for set in sets.split(";"):
             for diff_cubes in set.split(","):
@@ -60,7 +59,7 @@ if __name__ == "__main__":
     input.close()
 
     input = open(r"day2.txt")
-    power_of_each_game = get_power_of_each_game(input.readlines())
+    power_of_each_game = get_power_of_each_game(input.readlines(), len(total_colored_cubes_part1))
     input.close()
 
     print("Day 2:")
