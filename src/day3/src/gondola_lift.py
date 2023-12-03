@@ -56,7 +56,7 @@ def find_gear_ratio_of_symbol(engine_schematic, symbol_row, symbol_column, valid
                             valid_part_num.append(int(part_num))
 
     if len(valid_part_num) == valid_gear:
-        return valid_part_num[0]*valid_part_num[1]
+        return valid_part_num[0] * valid_part_num[1]
     else:
         return 0
 
@@ -71,6 +71,7 @@ def get_gear_ratio(engine_schematic, valid_gear):
 
     return sum_of_gear_ratios
 
+
 if __name__ == "__main__":
     input = open(r"day3.txt")
     missing_part_number = get_missing_part_number(input.readlines())
@@ -78,9 +79,9 @@ if __name__ == "__main__":
 
     input = open(r"day3.txt")
     valid_gear_value = 2  # Part Number
-    sum_of_gear_ratios = get_gear_ratio(input.readlines(), valid_gear_value)
+    total_of_gear_ratios = get_gear_ratio(input.readlines(), valid_gear_value)
     input.close()
 
     print("Day 3:")
     print("\tPart 1: ", sum(missing_part_number))
-    print("\tPart 2: ", sum_of_gear_ratios)
+    print("\tPart 2: ", total_of_gear_ratios)
