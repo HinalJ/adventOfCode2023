@@ -2,11 +2,13 @@ def num_of_way_win(time_of_races, current_highest_distances):
     num_of_ways_to_win_each_race = 1
     for idx, time_of_race in enumerate(time_of_races):
         win_counter = 0
-        for i in range(0, time_of_race+1):
+        for i in range(0, (time_of_race+1)//2):
             if i*(time_of_race-i) > current_highest_distances[idx]:
                 win_counter += 1
+        win_counter *= 2
+        if time_of_race % 2 == 0:
+            win_counter += 1
         num_of_ways_to_win_each_race *= win_counter
-
     return num_of_ways_to_win_each_race
 
 def solve_part1(input_lines):
