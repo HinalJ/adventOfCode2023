@@ -7,7 +7,7 @@ def extrapolate_value_from_history_end(history):
             all_zeroes = False
 
     if all_zeroes:
-        return new_hist[-1]+history[-1]
+        return history[-1]
     else:
         return history[-1] + extrapolate_value_from_history_end(new_hist)
 
@@ -27,7 +27,7 @@ def extrapolate_value_from_history_beginning(history):
             all_zeroes = False
 
     if all_zeroes:
-        return history[0]-new_hist[0]
+        return history[0]
     else:
         return history[0] - extrapolate_value_from_history_beginning(new_hist)
 
